@@ -4,7 +4,7 @@
   <img src="Banner.png" >
 </p>
 
-# Oséias Beu
+
 <sub>*Information and Automation Analyst* at Whirlpool Latin America</sub>
 
 As an automation analyst, information analyst and now as an experienced data scientist, I combine analytical skills, the ability to work in team environments and attention to the most minimalist details. After spending the last few years applying my knowledge in data analysis, transforming it into information and real problems for the big corporations I went through. With that I developed critical thinking and problem solving skills managing small projects and processes.
