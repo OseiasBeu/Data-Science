@@ -23,10 +23,9 @@ My credentials include a Master of Business Administration from the United Metro
 ## Projects:
 Below are some of my projects:
 
-* **Data Science: Analisando Mãos de Poker:** https://bit.ly/2A6ObEw
-* **Python CodeWars Solutions:** https://bit.ly/3h9VcFa
+* **Analisando Mãos de Poker:** https://bit.ly/2A6ObEw
 * **Análise da taxa de suicidio no mundo:** https://bit.ly/2YisJEy
-* **Data Science: Investigando o naufrágio do Titanic:** Em construção
+* **Investigando o naufrágio do Titanic:** Em construção
 <!-- https://bit.ly/2L2cMwy -->
 <!-- https://bit.ly/2Ubr5SH -->
 <!-- * **Como Implementar Regressão Linear com Python:** https://bit.ly/2Li5pzY -->
