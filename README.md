@@ -25,7 +25,8 @@ Below are some of my projects:
 
 * **Analisando Mãos de Poker:** https://bit.ly/2A6ObEw
 * **Análise da taxa de suicidio no mundo:** https://bit.ly/2YisJEy
-* **Investigando o naufrágio do Titanic:** Em construção
+* **Investigando o naufrágio do Titanic:** https://bit.ly/3elybgC
+* **Analises Básicas com R:** https://bit.ly/2zUdRUI
 <!-- https://bit.ly/2L2cMwy -->
 <!-- https://bit.ly/2Ubr5SH -->
 <!-- * **Como Implementar Regressão Linear com Python:** https://bit.ly/2Li5pzY -->
