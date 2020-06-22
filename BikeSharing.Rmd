@@ -1,0 +1,155 @@
+---
+title: "BikeSharing"
+author: "Oséias Beu"
+date: "6/21/2020"
+output: html_document
+---
+[https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset]
+
+## Analise de regressão linear utilizando dataset de bike compartilhada
+
+Informações do conjunto de dados:
+
+Os sistemas de compartilhamento de bicicletas são a nova geração de aluguel de bicicletas tradicionais, onde todo o processo de associação, aluguel e devolução se tornou automático. Através desses sistemas, o usuário pode alugar facilmente uma bicicleta de uma posição específica e retornar para outra posição. Atualmente, existem cerca de 500 programas de compartilhamento de bicicletas em todo o mundo, compostos por mais de 500 mil bicicletas. Atualmente, existe um grande interesse nesses sistemas devido ao seu importante papel nos problemas de trânsito, ambientais e de saúde.
+
+Além das interessantes aplicações do mundo real dos sistemas de compartilhamento de bicicletas, as características dos dados gerados por esses sistemas os tornam atraentes para a pesquisa. Ao contrário de outros serviços de transporte, como ônibus ou metrô, a duração da viagem, a partida e a posição de chegada são explicitamente registradas nesses sistemas. Esse recurso transforma o sistema de compartilhamento de bicicletas em uma rede virtual de sensores que pode ser usada para detectar a mobilidade na cidade. Portanto, espera-se que a maioria dos eventos importantes na cidade possa ser detectada através do monitoramento desses dados.
+
+
+#### Antes de começarmos, vamos entender nosso dataset.
+
+Informações sobre os campos:
+
+Both hour.csv and day.csv have the following fields, except hr which is not available in day.csv
+
+- instant: record index
+- dteday : date
+- season : season (1:winter, 2:spring, 3:summer, 4:fall)
+- yr : year (0: 2011, 1:2012)
+- mnth : month ( 1 to 12)
+- hr : hour (0 to 23)
+- holiday : weather day is holiday or not (extracted from [Web Link])
+- weekday : day of the week
+- workingday : if day is neither weekend nor holiday is 1, otherwise is 0.
++ weathersit :
+- 1: Clear, Few clouds, Partly cloudy, Partly cloudy
+- 2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist
+- 3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds
+- 4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog
+- temp : Normalized temperature in Celsius. The values are derived via (t-t_min)/(t_max-t_min), t_min=-8, t_max=+39 (only in hourly scale)
+- atemp: Normalized feeling temperature in Celsius. The values are derived via (t-t_min)/(t_max-t_min), t_min=-16, t_max=+50 (only in hourly scale)
+- hum: Normalized humidity. The values are divided to 100 (max)
+- windspeed: Normalized wind speed. The values are divided to 67 (max)
+- casual: count of casual users
+- registered: count of registered users
+- cnt: count of total rental bikes including both casual and registered
+
+
+
+
+```{r bike1}
+dados <- read.csv("https://raw.githubusercontent.com/OseiasBeu/Data-Science/master/DataSets/Bike-Sharing-Dataset/day.csv")
+
+summary(dados)
+```
+```{r bike2}
+head(dados)
+```
+
+#### Vamos remover algumas colunas que não vamos utiliza:
+```{r bike3}
+dados$instant <- NULL
+dados$dteday <-  NULL
+dados$season <-  NULL
+dados$yr <-  NULL
+#dados$mnth <-  NULL
+#dados$holiday <-  NULL
+#dados$weekday <-  NULL
+#dados$workingday <-  NULL
+str(dados)
+```
+### 1° Exploração: Usuário casual aumenta quando a temperatura sensivel aumenta?
+
+Escrevendo o modelo de regressão linear:
+
+```{r bike4}
+plot(dados$atemp, dados$casual)
+```
+Dessa forma é possível ver que temos uma relação positiva entre o número de pessoas que alugam bicicletas quando temos um aumento da temperatura do ambiente.
+
+
+Escrevendo o modelo de regressão linear:
+```{r bike5}
+#modelo <- lm(atemp ~ casual, data = dados)
+plot(dados$atemp, dados$casual)
+modelo <- lm(casual ~atemp, data = dados)
+abline(modelo$coefficients, col="red")
+
+```
+Acima, temos uma linha de ajuste com o slope (reta crescnte) ou seja, uma linha traçada com os valores esperados.Note que temos um númerp de resíduos bastante algo. Mas, isso não altera o valor de nossa relação.
+
+Agora, analisando o modelo de regressão linear, temos que:
+
+```{r bike6}
+summary(modelo)
+```
+
+Como podem ver, nosso coeficiênte de determinação (R-SQUARED) é de 0.29. Ele nos diz o quanto que o eixo X explica o eixo Y. No resultado acima temos que nosso X explica 29% (0.29 * 100) do nosso Y. Os outros 71% são explicados por outros fatores, ou seja, são resíduos. (São os fatores que fazem com que nossos pontos fiquem muito distantes da reta.)
+Temos um erro padrão de 576 o que significa que não está muito longe da reta.
+O valor de p nos diz a probabilidade desses valores serem atribuidos ao acaso, portanto, nesse caso, temos que a chance desses valores estarem ao acaso são de 0%.
+
+
+
+
+
+
+
+
+
+
+### 2º Exploração: A quantidade de usuários casuais muda com a estação do ano?
+
+```{r bike7}
+dados$estacao <- as.character(dados$season)
+dados$estacao <- ifelse(dados$season ==1,"inverno",dados$estacao)
+dados$estacao <- ifelse(dados$season ==2,"primavera",dados$estacao)
+dados$estacao <- ifelse(dados$season ==3,"verão",dados$estacao)
+dados$estacao <- ifelse(dados$season ==4,"outono",dados$estacao)
+boxplot(dados$casual ~ dados$estacao, notch=T) #utilivamos um boxplor quando queremos fazer o cruzamento de uma variável numérica com uma variável
+
+```
+
+#### Vamos reproduzir o boxplor para usuários registrados:
+
+```{r bike8}
+boxplot(dados$registered ~ dados$estacao, notch=T)
+boxplot(dados$registered ~ dados$estacao + dados$holiday)
+```
+
+```{r bike8}
+#Modelo Casual:
+casual <- lm(casual ~ temp + hum + weathersit + windspeed + estacao, data=dados)
+
+#Modelo registrados:
+registrados <- lm(registered ~ temp + hum + weathersit + windspeed + estacao, data=dados)
+summary(casual)
+summary(registrados)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
