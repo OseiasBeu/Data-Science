@@ -30,7 +30,7 @@ Below are some of my projects:
 * **Regressão Linear - R:** https://bit.ly/2Nk9UM4
 * **Analisando Métricas do facebook - R:** https://bit.ly/3dFXeK4
 * **Gráficos com Matplotlib - Python:** https://bit.ly/32ibHdc
-* **Gráficos com Seaborn - Python: ** https://bit.ly/2BijhcO
+* **Gráficos com Seaborn - Python:** https://bit.ly/2BijhcO
 <!-- https://bit.ly/2L2cMwy -->
 <!-- https://bit.ly/2Ubr5SH -->
 <!-- * **Como Implementar Regressão Linear com Python:** https://bit.ly/2Li5pzY -->
