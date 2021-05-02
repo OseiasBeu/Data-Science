@@ -25,6 +25,9 @@ Below are some of my projects:
 
 * **Analisando Mãos de Poker - Python:** https://bit.ly/2A6ObEw
 * **Análise da taxa de suicidio no mundo - Python:** https://bit.ly/2YisJEy
+* **Regressão logistica - Base de dados de doenças do coração - Python:** https://bit.ly/3gTWRAR
+* **Regressão logistica - R:** https://bit.ly/3eQ8HJN
+* **Regressão linear - R:** https://bit.ly/2QOce35
 * **Investigando o naufrágio do Titanic - Python:** https://bit.ly/3elybgC
 * **Analises Básicas com R:** https://bit.ly/2zUdRUI
 * **Regressão Linear - R:** https://bit.ly/2Nk9UM4
