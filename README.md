@@ -16,6 +16,7 @@ My credentials include a Master of Business Administration from the United Metro
 **Links:**
 * [LinkedIn](https://www.linkedin.com/in/oseiasbeu/)
 * [Instagram](https://www.instagram.com/eusouoseiasbeu/)
+* [Youtube](https://www.youtube.com/channel/UCc5L11HhFcn9ecpxJRXsceQ)
 
 **Articles**
 * [Data analysis](https://www.linkedin.com/pulse/an%C3%A1lise-de-dados-os%C3%A9ias-beu/)
