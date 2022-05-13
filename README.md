@@ -25,6 +25,7 @@ My credentials include a Master of Business Administration from the United Metro
 Below are some of my projects:
 
 * **Analisando Mãos de Poker - Python:** https://bit.ly/2A6ObEw
+* **Classificação de Roupas utilizando Deep Learning:** https://bit.ly/3Ngvwpl
 * **Análise da taxa de suicidio no mundo - Python:** https://bit.ly/2YisJEy
 * **Regressão logistica - Base de dados de doenças do coração - Python:** https://bit.ly/3gTWRAR
 * **Regressão logistica - R:** https://bit.ly/3eQ8HJN
